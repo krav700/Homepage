@@ -1,0 +1,190 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+@font-face {
+    font-family: "Tinos";
+    src: url(./fonts/Tinos-Regular.woff2);
+}
+
+:root {
+    --acent-color: rgb(65, 143, 174);
+}
+
+body {
+    font-family: "Tinos";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    position: relative;
+    padding: 2rem;
+    width: 100vw;
+}
+
+header::before {
+    position: absolute;
+    content: "";
+    top: -150%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    z-index: -1;
+    background-color: var(--acent-color);
+    transform: rotate(90deg) skew(10deg);
+    box-shadow: 1px 0px 5px black;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FFF;
+    height: fit-content;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: 0px 0 5px gray;
+    gap: 1rem;
+    transform: scale(1.2);
+}
+
+.header-description {
+    width: 44ch;
+    font-size: clamp(1rem, 1vw + 0.5rem ,1.5rem);
+    text-wrap: pretty;
+    /* white-space: ; */
+}
+
+.social-links {
+    align-self: end;
+    display: flex;
+    gap: 0.5rem;
+}
+
+a > img, a > svg {
+    width: 32px;
+}
+
+header > picture > img {
+    position: relative;
+    max-width: 600px;
+}
+
+picture {
+    position: relative;
+}
+
+.header-name {
+    position: absolute;
+    top: 90%;
+    left: 30%;
+    font-size: clamp(1.5rem, 2.8vw ,2.5rem);
+    color: #FFF;
+    text-shadow: 0px 0px 10px #444;
+}
+
+@media (max-width: 1024px) {
+    picture > img {
+        float: left;
+        shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .header-content {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+        padding: 0;
+    }
+    header::before {
+        top: -1000px;
+        transform: rotate(90deg) skew(15deg);
+        top: -900px;
+        height: 300%;
+    }
+    header > picture > img {
+        min-width: none;
+        float: none;
+        shape-outside: none;
+        min-width: 300px;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-content {
+        transform: scale(0.8);
+    }
+    header > picture > img {
+        top: 50px;
+    }
+}
