@@ -163,9 +163,9 @@ main {
 
 .project-cards-container {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
-    max-width: calc(3 * 300px + 2 * 1rem);
+    max-width: calc(3 * 300px + 2 * 2rem);
     justify-content: center;
     margin-inline: auto;
     align-items: center;
@@ -174,7 +174,28 @@ main {
 .project-card > img {
     width: 300px;
     height: 200px;
-    background-color: maroon;
+    object-fit: contain;
+}
+
+.battleships {
+    background-color: rgb(56, 51, 51);
+}
+
+.weather-forecast {
+    background-color: rgb(248, 214, 72);
+}
+
+.to-do-list, .etch-a-sketch {
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.tic-tac-toe {
+    background-color: rgb(249, 226, 202);
+}
+
+.calculator {
+    background-color: rgb(51, 42, 31);
 }
 
 .project-card {
@@ -220,6 +241,47 @@ main {
     padding-top: 0;
 }
 
+footer {
+    background: var(--acent-color);
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    width: 100vw;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-content > .social-links {
+    align-self: start;
+    gap: 1rem;
+}
+
+.footer-contact-phone, .footer-contact-email {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-content-contact > div > svg {
+    width: 24px;
+}
+
+@media (min-width: 1800px) {
+    header::before {
+        top: calc(-150% - 20vw);
+        left: 0;
+        width: 100%;
+        height: calc(200% + 2rem);
+        /* 1328px */
+    }
+}
+
 @media (max-width: 1024px) {
     picture > img {
         float: left;
@@ -248,6 +310,19 @@ main {
         min-width: 300px;
         max-width: 450px;
     }
+    .footer-description {
+        width: 30ch;
+    }
+    footer > picture {
+        flex-shrink: 0;
+        width: 282px;
+    }
+}
+
+@media (max-width: 600px) {
+    footer > picture {
+        width: 40%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -256,5 +331,19 @@ main {
     }
     header > picture > img {
         top: 50px;
+    }
+    .my-work {
+        margin-left: 5rem;
+    }
+    footer > picture {
+        flex-shrink: 0;
+        width: 40%;
+    }
+
+    footer {
+        gap: 0rem;
+    }
+    footer > .footer-content {
+        transform: scale(0.8);
     }
 }
